@@ -89,10 +89,10 @@ nat.on('guildMemberAdd', async(member) => {
     }
 })
 
-nat.login(config.token).catch(e => {
+nat.login(process.env.TOKEN).catch(e => {
     if (e) {
         if (config.debug) {
-            console.log(chalk.red `[ERROR] ` + chalk.white `You token is invalid within the config file!\n${e}`)
+            console.log(chalk.red(`[ERROR] `) + chalk.white(`Your token is invalid or missing from environment variables!\n${e}`));
         }
     }
-})
+});
